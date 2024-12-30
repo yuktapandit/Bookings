@@ -135,10 +135,11 @@ The Hall Booking System is a web application designed to manage bookings for var
 
 ## Screenshots
 1. **Booking Form**: Captures details for new bookings.
-   ![image](https://github.com/user-attachments/assets/4666fc4d-2ba7-46e1-b5da-30544b6ad18b)
+   ![image](https://github.com/user-attachments/assets/77348e74-3c2b-4a45-8021-f926153d03e1)
+   ![image](https://github.com/user-attachments/assets/36d17e6f-6048-43a2-b306-26262e1ca7be)
 
 3. **Booking List**: Displays all bookings with edit and delete options.
-   ![image](https://github.com/user-attachments/assets/5761d84d-7e78-44c3-bb1e-a1ab57adc54a)
+   ![image](https://github.com/user-attachments/assets/8837db80-79b6-4de4-8a4b-90bb956684fc)
 
 
 ---
