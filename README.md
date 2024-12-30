@@ -1,70 +1,148 @@
-# Getting Started with Create React App
+# Hall Booking System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+The Hall Booking System is a web application designed to manage bookings for various halls. It includes features to create, read, update, and delete bookings. The backend is built using Spring Boot with a PostgreSQL database, and the frontend is implemented in React.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
+1. **CRUD Operations**:
+   - Add, view, update, and delete bookings.
+2. **JAVA Microservices**:
+   - Entity, Controller, Repository, and Services.
+3. **CORS Support**:
+   - Configured to allow requests from `http://localhost:3000`.
+4. **Customizable Halls**:
+   - Predefined list of halls with an option to select during booking.
+5. **Real-time Calculations**:
+   - Auto-calculates total charges based on rent and additional charges.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+- **Spring Boot**
+  - REST API development
+  - Dependency injection using `@Autowired`
+  - Data access with JPA Repository
+- **PostgreSQL**
+  - Relational database for storing booking details
+- **PL/pgSQL**
+  - Stored procedures for database operations
+- **Spring Web MVC**
+  - CORS configuration
 
-### `npm test`
+### Frontend
+- **React.js**
+  - UI development with components like BookingForm and BookingList
+  - State management with React Hooks (`useState`, `useEffect`)
+- **CSS**
+  - Styling for form and list views
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Backend Implementation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Key Files
+- **Main Application**: `HallBookingApplication.java`
+  - Entry point for the Spring Boot application.
+- **Entity**: `HallBooking.java`
+  - Defines the data model for bookings.
+- **Repository**: `HallBookingRepository.java`
+  - Provides JPA repository for database interactions.
+- **Service**: `HallBookingService.java`
+  - Contains business logic for booking operations.
+- **Controller**: `HallBookingController.java`
+  - REST API endpoints for bookings.
+- **CORS Configuration**: `CorsConfig.java`
+  - Enables cross-origin requests.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Database
+- **Stored Procedures**:
+  - `insert_booking`: Inserts a new booking.
+  - `update_booking`: Updates an existing booking.
+  - `delete_booking`: Deletes a booking by ID.
+  - `get_all_bookings`: Fetches all bookings.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Frontend Implementation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Key Components
+1. **BookingForm**:
+   - Collects user input for creating or updating bookings.
+   - Auto-calculates the total amount based on rent and additional charges.
+2. **BookingList**:
+   - Displays a list of bookings with options to edit or delete.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Key Features
+- **Real-time Total Calculation**:
+  - Updates the total field dynamically based on input.
+- **Error Handling**:
+  - Alerts on submission errors or failed operations.
+- **Navigation**:
+  - Built with React Router for seamless transitions.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Setup Instructions
 
-## Learn More
+### Prerequisites
+- **Backend**: Java 17+, Maven, PostgreSQL
+- **Frontend**: Node.js, npm
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Steps
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd hall-booking-system
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Backend Setup**:
+   - Import the backend project into your favorite IDE (e.g., IntelliJ, Eclipse).
+   - Configure the database in `application.properties`.
+   - Run the Spring Boot application.
 
-### Code Splitting
+3. **Database Setup**:
+   - Execute the provided SQL scripts to set up the `hall_booking` database and stored procedures.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. **Frontend Setup**:
+   ```bash
+   cd frontend
+   npm install
+   npm start
+   ```
 
-### Analyzing the Bundle Size
+5. **Access the Application**:
+   - Frontend: `http://localhost:3000`
+   - Backend API: `http://localhost:8080/api/bookings`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Base URL
+`http://localhost:8080/api/bookings`
 
-### Advanced Configuration
+### Endpoints
+- **GET** `/` - Fetch all bookings.
+- **POST** `/` - Create a new booking.
+- **PUT** `/` - Update an existing booking.
+- **DELETE** `/{id}` - Delete a booking by ID.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Screenshots
+1. **Booking Form**: Captures details for new bookings.
+   ![image](https://github.com/user-attachments/assets/4666fc4d-2ba7-46e1-b5da-30544b6ad18b)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+3. **Booking List**: Displays all bookings with edit and delete options.
+   ![image](https://github.com/user-attachments/assets/5761d84d-7e78-44c3-bb1e-a1ab57adc54a)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## License
+This project is licensed under the MIT License.
+
