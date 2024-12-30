@@ -93,28 +93,38 @@ The Hall Booking System is a web application designed to manage bookings for var
 - **Frontend**: Node.js, npm
 
 ### Steps
-1. **Clone the Repository**:
-   ```bash
-   git clone <repository-url>
-   cd hall-booking-system
-   ```
+1. **Initialize the Spring Boot Project**:
+   - Go to [Spring Initializer](https://start.spring.io/)
+   - Select the following:
+      - Project: Maven
+     - Language: Java
+     - Spring Boot: Latest Stable Version
+     - Dependencies:
+       - Spring Web
+       - Spring Data JPA
+       - PostgreSQL Driver
+   - Generate the project and download the zip.
+   - Extract it and import it into your favorite IDE (e.g., IntelliJ, Eclipse).
 
 2. **Backend Setup**:
    - Import the backend project into your favorite IDE (e.g., IntelliJ, Eclipse).
-   - Configure the database in `application.properties`.
+   - Configure the database in `application.properties` and create entity-controller-service-repository pattern.
+   - Configure the CORS for smooth interaction between backend and frontend.
    - Run the Spring Boot application.
 
 3. **Database Setup**:
    - Execute the provided SQL scripts to set up the `hall_booking` database and stored procedures.
 
 4. **Frontend Setup**:
+   - Create components for UI and functionalities
    ```bash
    cd frontend
    npm install
+   npm install axios
    npm start
    ```
 
-5. **Access the Application**:
+6. **Access the Application**:
    - Frontend: `http://localhost:3000`
    - Backend API: `http://localhost:8080/api/bookings`
 
